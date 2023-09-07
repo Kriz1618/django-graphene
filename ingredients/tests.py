@@ -81,7 +81,7 @@ class IngredentsTestCase(GraphQLTestCase):
         '''
         variables = {'id': self.ingredient_1.pk}
         response = self.client.execute(query, variables=variables)
-        self.assertEqual(response['data']['name'], self.caegory_1.name)
+        self.assertEqual(response['data']['name'], self.category_1.name)
 
     def test_ingredients_query(self):
         query = '''
