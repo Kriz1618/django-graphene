@@ -6,6 +6,7 @@ class Book(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(blank=True, upload_to="books_images/")
 
-    def __str__(self):
+    def __str__(self: "Book") -> str:
         return self.title

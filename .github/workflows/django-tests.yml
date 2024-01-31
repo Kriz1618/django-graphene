@@ -1,0 +1,35 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Django-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: mv .env.example.development .env
+
+      - name: Build image
+        run: docker-compose build
+
+      - name: Initialize project
+        run: docker-compose up -d
+
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+
+      - name: Run tests
+        run: docker-compose exec -T api /bin/bash -c "pytest"
+
+      - name: Finalize project
+        run: docker-compose down

@@ -1,0 +1,10 @@
+[flake8]
+ignore = A003 ANN401 I900 TC002
+exclude = .git__pycache__,test*,manage.py,*/migrations/*,./venv,.guthub,app/conftest.py
+max-complexity = 9
+max-line-length = 120
+inline-quotes = double
+max-cognitive-complexity=9
+max-parameters-amount=8
+requirements-file = ./requirements.txt
+

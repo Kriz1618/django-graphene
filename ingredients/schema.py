@@ -1,4 +1,4 @@
-from graphene import relay, ObjectType
+from graphene import ObjectType, relay
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
@@ -10,8 +10,8 @@ from .models import Category, Ingredient
 class CategoryNode(DjangoObjectType):
     class Meta:
         model = Category
-        filter_fields = ['name', 'ingredients']
-        interfaces = (relay.Node, )
+        filter_fields = ["name", "ingredients"]
+        interfaces = (relay.Node,)
 
 
 class IngredientNode(DjangoObjectType):
@@ -19,12 +19,12 @@ class IngredientNode(DjangoObjectType):
         model = Ingredient
         # Allow for some more advanced filtering here
         filter_fields = {
-            'name': ['exact', 'icontains', 'istartswith'],
-            'notes': ['exact', 'icontains'],
-            'category': ['exact'],
-            'category__name': ['exact'],
+            "name": ["exact", "icontains", "istartswith"],
+            "notes": ["exact", "icontains"],
+            "category": ["exact"],
+            "category__name": ["exact"],
         }
-        interfaces = (relay.Node, )
+        interfaces = (relay.Node,)
 
 
 class Query(ObjectType):

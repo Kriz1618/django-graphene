@@ -12,14 +12,14 @@ git clone git@github.com:Kriz1618/django-graphene.git
 
 ## Create and activate a virtual environment
 * `python -m venv venv`
-* `source env/bin/activate`
+* `source venv/bin/activate`
 
 ## Install modules
 ```
 python -m pip install -r requirements.txt
 ```
 
-## Start 
+## Start
 ```
 python manage.py runserver
 ```
@@ -34,6 +34,12 @@ python manage.py test
 autopep8 -i */*.py
 black .
 ```
+
+## Clear Docker Volumes
+```
+docker system prune -af --volumes
+```
+
 
 ## Steps
 * Create folder `mkdir django-graphql && cd django-graphql`
