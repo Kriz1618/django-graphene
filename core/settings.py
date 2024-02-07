@@ -146,8 +146,8 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-ALLOWED_HOSTS = get_env_variable("ALLOWED_HOSTS").split(",")
 
+ALLOWED_HOSTS = get_env_variable("ALLOWED_HOSTS").split(",")
 AWS_ACCESS_KEY_ID = get_env_variable("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = get_env_variable("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = get_env_variable("AWS_STORAGE_BUCKET_NAME")
