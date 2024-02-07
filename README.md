@@ -63,3 +63,18 @@ docker system prune -af --volumes
 * Run a container base on the created image `docker run -p 8000:8000 image-tag`
 * Create the [docker-compose.yml](https://docs.docker.com/compose/compose-file/compose-file-v3/) file
 * Create and run a container `docker-compose up -d`
+
+
+## Running with uWSGI
+* Replace the CMD command in the Dockerfile to `CMD ["uwsgi", "--ini", "uwsgi.ini"]`
+* Add the uWSGI module in the requirements file `uWSGI==2.0.23`
+* Create the `uwsgi.ini` configuration file
+
+
+## Add a local custom host to test ALLOWED_HOST configuration
+* open the file `/Windows/System32/drivers/etc/hosts`
+* Set the following configuration
+```
+127.0.0.1 example.test
+::1 example.test localhost
+```
