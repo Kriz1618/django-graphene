@@ -4,6 +4,7 @@ from graphene_django import DjangoObjectType
 
 import books.graphql.schemas as books_schema
 import ingredients.schema
+import users.graphql.schemas as users_schema
 from books.models import Book
 from ingredients.models import Category, Ingredient
 
@@ -70,7 +71,7 @@ class UpdateBookMutation(graphene.Mutation):
         return UpdateBookMutation(book=book)
 
 
-class Query(ingredients.schema.Query, books_schema.Query, graphene.ObjectType):
+class Query(ingredients.schema.Query, books_schema.Query, users_schema.Query, graphene.ObjectType):
     ingredients = graphene.List(IngredientType)
     category_by_name = graphene.Field(CategoryType, name=graphene.String(required=True))
 
@@ -84,7 +85,7 @@ class Query(ingredients.schema.Query, books_schema.Query, graphene.ObjectType):
             return None
 
 
-class Mutation(books_schema.Mutation, graphene.ObjectType):
+class Mutation(books_schema.Mutation, users_schema.Mutation, graphene.ObjectType):
     create_book = CreateBookMutation.Field()
     delete_book = DeleteBookMutation.Field()
     update_book = UpdateBookMutation.Field()
