@@ -36,6 +36,7 @@ SECRET_KEY = "django-insecure-r!&$sfl3r)^ohjn@-3+&rac&@7uor9*6*6hry+l2x5!oe*9e6e
 
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = get_env_variable("DEBUG") == "true"
+VALIDATE_TOKEN = get_env_variable("VALIDATE_TOKEN") == "true"
 
 ALLOWED_HOSTS = []
 
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     "storages",
     "ingredients",
     "corsheaders",
+    "users",
 ]
 
 MIDDLEWARE = [

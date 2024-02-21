@@ -15,4 +15,4 @@ docker-compose.yaml
 
 
 # env
-venv
+/venv

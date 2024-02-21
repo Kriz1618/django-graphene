@@ -1,9 +1,14 @@
 # Django Graphql
 Basic CRUD API with django and Graphene
 
-## Required Tools
-* Python
-*  Django
+
+![python version](https://img.shields.io/badge/python-3.10.10-brightgreen)
+![django version](https://img.shields.io/badge/django-4.2.3-brightgreen)
+
+## Tech stack
+* django
+* postgres
+* graphene
 
 ## Clone
 ```

@@ -1,5 +1,5 @@
 [flake8]
-ignore = A003 ANN401 I900 TC002
+ignore = A003 ANN401 I900 TC002 F401
 exclude = .git__pycache__,test*,manage.py,*/migrations/*,./venv,.guthub,app/conftest.py
 max-complexity = 9
 max-line-length = 120
