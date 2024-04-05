@@ -3,6 +3,7 @@ from django.core.files import File
 from django.core.files.storage import default_storage
 from graphene import ResolveInfo
 from graphene_file_upload.scalars import Upload
+from graphene_django_cud.mutations import DjangoCreateMutation
 
 from books.graphql.types import BookType
 from books.models import Book
@@ -36,3 +37,8 @@ class InsertBookMutation(graphene.Mutation):
             book.image.save(file.name, File(file), save=False)
         book.save()
         return InsertBookMutation(book=book)
+
+
+class AddBookMutation(DjangoCreateMutation):
+    class Meta:
+        model = Book
